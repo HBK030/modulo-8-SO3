@@ -1,0 +1,65 @@
+------------------* INSTALAR DOCKER COMPOSE *--------------------------
+
+1-) Instalar Docker Compose: 
+
+1- sudo curl -sL "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+------------------------------------------------------------------------------------------------
+2-) Ahora tocaria asignarle los permisos a esa ruta que añadimos, para que tenga permiso de ejecución: 
+
+1- chmod +x /usr/local/bin/docker-compose
+
+---------------------------------------------------------------------------------------------------------
+
+3-) Verificación de la instalacion: 
+
+1- docker-compose --version 
+
+------------------------------------------------------------------------------------------------------
+
+4-) Crear el archivo yml 
+
+ cat <<EOL | sudo tee docker-compose.yml >/dev/null
+services:
+  db:
+    image: mariadb:10
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=manager
+      - MYSQL_PASSWORD=secret
+  web:
+    image: wordpress:6
+    depends_on:
+      - db
+    volumes:
+      - ./target:/var/www/html
+    environment:
+      - WORDPRESS_DB_USER=manager
+      - WORDPRESS_DB_PASSWORD=secret
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_NAME=wordpress
+    ports:
+      - 8080:80
+volumes:
+  data:
+EOL
+
+-------------------------------------------------------------------------
+Funcion: El Docker-compose.yml generara el archivo de configuración para los contenedores de WordPress y MariaDB.
+
+5-) Ahora tocaria levantar el servicio especificado de Docker Compose YML:
+
+1- docker compose -f docker-compose.yml up -d 
+
+Verificamos en el navegador: 
+
+localhost:8080 y te aparecerá la interfaz de WordPress:
+
+Eliges el idioma, pones el titulo por ejemplo: MODULO VII, Nombre del Usuario Tu nombre. Y contra: TlUHCZv0pvkRH%upC#. Y el correo, buscas un generador de correos y lo pones. 
+
+
+
+

@@ -1,0 +1,59 @@
+-------*COMANDOS PARA CADA EXPOSICION*-------------------------
+**********************************************************************************************
+
+1-) Instalar Docker: OJO TODO ESTO HAZLO EN MODO ROOT.
+------------------------------------------------------------------------------------------------
+1- Lo primero es instalar los repositorios existentes: 
+
+sudo dnf -y update --nobest --skip-broken
+
+-------------------------------------------------------------------------------------------------
+2-) Instalacion de las dependencias al igual que errores comunes en distro basadas en REDHAT:
+
+1- sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+
+2- sudo dnf remove -y podman buildah runc 
+
+-------------------------------------------------------------------------------------------------
+3-) Instalacion de Docker: 
+
+1- sudo dnf install -y docker-ce --nobest
+
+--------------------------------------------------------------------------------------------------
+4-) Inicializacion de Docker 
+
+1- sudo systemctl start docker
+
+2- sudo systemctl enable docker 
+
+--------------------------------------------------------------------------------------------------
+***********************************************************************************************************************************
+2-) Descargar un contenedor:
+
+docker pull ____ <---- EL NOMBRE DEL CONTRENEDOR
+-------------------------------------------------------------
+
+1- docker pull nginx <------ Para instalar NGINX POR EJEMPLO
+
+---------------------------------------------------------
+
+docker images <------------------- PARA VER LAS IMAGENES
+
+mkdir -p /home/website <------------------- CREAMOS UN DIRECTORIO
+
+sudo docker run -d --name Web_docker -p 8888:80 -v /home/website:/usr/share/nginx/html/ nginx
+
+echo "<html><body><h1> Edan Ernesto Cadena Caamaño </h1> <h2> 2024-1913</h2> </body> </html>" | sudo tee /home/website/index.html > /dev/null
+
+
+
+
+
+
+
+
+
+
+
+
+
