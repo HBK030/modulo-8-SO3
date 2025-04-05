@@ -13,7 +13,7 @@
 
 3-) Verificación de la instalacion: 
 
-1- docker-compose --version 
+1- docker compose version 
 
 ------------------------------------------------------------------------------------------------------
 
