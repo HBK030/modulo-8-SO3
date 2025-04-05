@@ -1,6 +1,3 @@
--------*COMANDOS PARA CADA EXPOSICION*-------------------------
-**********************************************************************************************
-
 1-) Instalar Docker: OJO TODO ESTO HAZLO EN MODO ROOT.
 ------------------------------------------------------------------------------------------------
 1- Lo primero es instalar los repositorios existentes: 
@@ -33,7 +30,7 @@ sudo dnf -y update --nobest --skip-broken
 docker pull ____ <---- EL NOMBRE DEL CONTRENEDOR
 -------------------------------------------------------------
 
-1- docker pull nginx <------ Para instalar NGINX POR EJEMPLO
+1- docker pull nginx <------ Para instalar NGINX
 
 ---------------------------------------------------------
 
@@ -41,9 +38,9 @@ docker images <------------------- PARA VER LAS IMAGENES
 
 mkdir -p /home/website <------------------- CREAMOS UN DIRECTORIO
 
-sudo docker run -d --name Web_docker -p 8888:80 -v /home/website:/usr/share/nginx/html/ nginx
+sudo docker run -d --name Web_docker -p 8888:80 -v /home/website:/usr/share/nginx/html/ nginx <------------------- EJECUTAMOS EL CONTENEDOR DOCKER USANDO LA IMAGEN NGINX
 
-echo "<html><body><h1> Edan Ernesto Cadena Caamaño </h1> <h2> 2024-1913</h2> </body> </html>" | sudo tee /home/website/index.html > /dev/null
+echo "<html><body><h1> Edan Ernesto Cadena Caamaño </h1> <h2> 2024-1913</h2> </body> </html>" | sudo tee /home/website/index.html > /dev/null <------------------- CUERPO DE NUESTRO HTML SENCILLO
 
 
 
