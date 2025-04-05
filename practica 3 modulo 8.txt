@@ -48,7 +48,7 @@ volumes:
 EOL
 
 -------------------------------------------------------------------------
-Funcion: El Docker-compose.yml generara el archivo de configuración para los contenedores de WordPress y MariaDB.
+El Docker-compose.yml generara el archivo de configuración para los contenedores de WordPress y MariaDB.
 
 5-) Ahora tocaria levantar el servicio especificado de Docker Compose YML:
 
@@ -58,7 +58,7 @@ Verificamos en el navegador:
 
 localhost:8080 y te aparecerá la interfaz de WordPress:
 
-Eliges el idioma, pones el titulo por ejemplo: MODULO VII, Nombre del Usuario Tu nombre. Y contra: TlUHCZv0pvkRH%upC#. Y el correo, buscas un generador de correos y lo pones. 
+Eliges el idioma, pones el titulo, Nombre del Usuario Tu nombre. Y contraseña la que elijas y el correo. Para fines de esta practica usamos un generador de correos temporales. 
 
 
 
